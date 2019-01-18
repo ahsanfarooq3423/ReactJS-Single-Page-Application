@@ -1,0 +1,49 @@
+.card{
+    max-width: 82%;
+    min-width: 55%;
+    background-color: white;
+    height: 200px;
+    
+}
+
+.innertext{
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+
+.stuff{
+    max-width: 82%;
+    min-width: 55%;
+    background-color: white;    
+    display: inline-block;
+
+    
+    
+}
+
+.items{
+    width: 20%;
+    display: inline-block;
+    height: 150px;
+    background-color: rosybrown;
+    margin: 0px 0px 30px 30px;
+    border: 2px solid gray;
+    text-align: center;
+    
+}
+
+.pitem{
+    font-weight: bolder;
+}
+
+.btnEdit button {
+    margin: 10px;
+    border: 2px solid slateblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    background-color: blueviolet;
+    color: white;
+    width: 40%;
+    height: 22px;
+}
