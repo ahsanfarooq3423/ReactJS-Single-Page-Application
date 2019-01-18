@@ -181,7 +181,7 @@ class App extends Component {
    
     return (
       <div className="App">
-         <h1>SPA</h1>
+         
          <Title/>
           <div className="navbar" >
           <ul className="nav">
