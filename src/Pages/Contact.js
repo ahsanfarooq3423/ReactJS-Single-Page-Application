@@ -1,12 +1,14 @@
 import React from 'react';
-import './Pages.css'
+
+
+import pageStyles from './Pages.module.css';
 
 class Contact extends React.Component {
     render() {
        return (
-        <div className="card">
-            <h1 className="innertext">CONTACT US</h1>
-            <p className="innertext">Feel Free to Contact us at simplespa@spa.com</p>
+        <div className={pageStyles.card}>
+            <h1 className={pageStyles.innertext}>CONTACT US</h1>
+            <p className={pageStyles.innertext}>Feel Free to Contact us at simplespa@spa.com</p>
         </div>
        )
     }

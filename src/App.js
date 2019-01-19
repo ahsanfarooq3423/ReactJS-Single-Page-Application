@@ -4,12 +4,12 @@ import Contact from './Pages/Contact';
 import Stuff from './Pages/Stuff';
 import AddItem from './Pages/AddItem';
 import EditItem from './Pages/EditItem';
-import './App.css';
-import './Pages/Pages.css';
+import appStyles from './App.module.css';
+import pageStyles from './Pages/Pages.module.css';
 
 
 const Title = () => {
-  return <h1 addclass="title">Simple Single Page Application (React)</h1>        
+  return <h1 addclass={appStyles.title}>Simple Single Page Application (React)</h1>        
 }
 
 class App extends Component {
@@ -131,8 +131,8 @@ class App extends Component {
 
   render() {
     const  stuff = (
-      <div className="stuff">
-      <h1 className="innertext">Welcome to the Single Page Application Items</h1>
+      <div className={pageStyles.stuff}>
+      <h1 className={pageStyles.innertext}>Welcome to the Single Page Application Items</h1>
           {
             this.state.stuff.map((item,index) => {
               return <Stuff 
@@ -144,19 +144,29 @@ class App extends Component {
             })
           }
           <br></br>
-          <button className="addItem" onClick={this.addItemState}><h3>Add Item</h3></button>  
+          <button className={appStyles.addItem} onClick={this.addItemState}><h3>Add Item</h3></button>  
     </div>
     )
-
+    let homeLink, stuffLink, contactLink;
     let showPage = (stuff);
     if (this.state.currentPage === 'home'){
       showPage = (<Home/>)
+      homeLink = appStyles.activelink;
+      stuffLink = ''
+      contactLink = ''
     }
+
     if (this.state.currentPage === 'stuff'){
       showPage = (stuff);
+      stuffLink = appStyles.activelink;
+      homeLink= '';
+      contactLink ='';
     }
     else if (this.state.currentPage === 'contact'){
       showPage = (<Contact/>);
+      contactLink = appStyles.activelink;
+      homeLink = '';
+      stuffLink = '';
     }
 
     else if (this.state.currentPage === 'additem'){
@@ -175,27 +185,15 @@ class App extends Component {
                   saveEdit = {this.stuffState}/>)
     }
 
-    const homeActive = (<li><a href="#" id="home" className='activelink' onClick={this.homeState}>Home</a></li>);
-    const homeInActive = (<li><a href="#" id="home"  onClick={this.homeState}>Home</a></li>);
-   
-   
     return (
-      <div className="App">
+      <div className={appStyles.App}>
          
          <Title/>
-          <div className="navbar" >
+          <div className={appStyles.navbar}>
           <ul className="nav">
-              {this.state.currentPage === 'home' ?
-               homeActive: homeInActive
-               }
-              
-              {this.state.currentPage === 'stuff' ?
-              <li><a href="#" id="stuff" className='activelink' onClick={this.stuffState}>Stuff</a></li>:
-              <li><a href="#" id="stuff" onClick={this.stuffState}>Stuff</a></li>}
-              
-              {this.state.currentPage === 'contact' ?
-                <li><a href="#" id="contact" className='activelink'  onClick={this.contactState}>Contact</a></li>
-              :<li><a href="#" id="contact"  onClick={this.contactState}>Contact</a></li>}
+              <li><a href="#" id="home" className={homeLink} onClick={this.homeState}>Home</a></li>
+              <li><a href="#" id="stuff" className={stuffLink} onClick={this.stuffState}>Stuff</a></li>
+              <li><a href="#" id="contact" className={contactLink} onClick={this.contactState}>Contact</a></li>
           </ul>
         </div>
        {showPage}
