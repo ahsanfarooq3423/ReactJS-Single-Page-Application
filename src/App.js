@@ -4,6 +4,7 @@ import Contact from './Pages/Contact';
 import Stuff from './Pages/Stuff';
 import AddItem from './Pages/AddItem';
 import EditItem from './Pages/EditItem';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import appStyles from './App.module.css';
 import pageStyles from './Pages/Pages.module.css';
 
@@ -135,12 +136,11 @@ class App extends Component {
       <h1 className={pageStyles.innertext}>Welcome to the Single Page Application Items</h1>
           {
             this.state.stuff.map((item,index) => {
-              return <Stuff 
+              return  (<ErrorBoundary key={item.id}><Stuff 
                         name={item.name} 
-                        price={item.price} 
-                        key={item.id} 
+                        price={item.price}    
                         delete={() => this.deleteItemHanlder(index)}
-                        edit = {() => this.editItemHandler(index)} />
+                        edit = {() => this.editItemHandler(index)} /></ErrorBoundary>)
             })
           }
           <br></br>
