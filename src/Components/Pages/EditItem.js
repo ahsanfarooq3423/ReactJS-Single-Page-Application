@@ -1,5 +1,5 @@
 import React from 'react';
-import appStyles from '../App.module.css';
+import appStyles from '../../Containers/App.module.css';
 
 const EditItem = (props) => {    
     return (

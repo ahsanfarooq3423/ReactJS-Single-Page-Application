@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import Home from './Pages/Home';
-import Contact from './Pages/Contact';
-import Stuff from './Pages/Stuff';
-import AddItem from './Pages/AddItem';
-import EditItem from './Pages/EditItem';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Home from '../Components/Pages/Home';
+import Contact from '../Components/Pages/Contact';
+import Stuff from '../Components/Pages/Stuff';
+import AddItem from '../Components/Pages/AddItem';
+import EditItem from '../Components/Pages/EditItem';
+import Title from '../Components/Pages/Title';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import appStyles from './App.module.css';
-import pageStyles from './Pages/Pages.module.css';
+import pageStyles from '../Components/Pages/Pages.module.css';
 
-
-const Title = () => {
-  return <h1 addclass={appStyles.title}>Simple Single Page Application (React)</h1>        
-}
 
 class App extends Component {
 
@@ -31,7 +28,6 @@ class App extends Component {
     this.setState({currentPage: 'additem'});
     
   }
-  
 
   //the state object
   state = {
@@ -147,6 +143,9 @@ class App extends Component {
           <button className={appStyles.addItem} onClick={this.addItemState}><h3>Add Item</h3></button>  
     </div>
     )
+
+   
+
     let homeLink, stuffLink, contactLink;
     let showPage = (stuff);
     if (this.state.currentPage === 'home'){
@@ -190,7 +189,7 @@ class App extends Component {
          
          <Title/>
           <div className={appStyles.navbar}>
-          <ul className="nav">
+          <ul className={appStyles.nav}>
               <li><a href="#" id="home" className={homeLink} onClick={this.homeState}>Home</a></li>
               <li><a href="#" id="stuff" className={stuffLink} onClick={this.stuffState}>Stuff</a></li>
               <li><a href="#" id="contact" className={contactLink} onClick={this.contactState}>Contact</a></li>

@@ -1,6 +1,5 @@
 import React from 'react';
-import '../App.css';
-import appStyles from '../App.module.css';
+import appStyles from '../../Containers/App.module.css';
 
 
 const AddItem = (props) => {

@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import pageStyles from './Pages.module.css';
 
 class Home extends React.Component {
